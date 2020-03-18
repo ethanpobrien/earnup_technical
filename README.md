@@ -22,7 +22,8 @@ and add poetry to your path with `export PATH="$HOME/.poetry/bin:$PATH"`. Then
 when you are inside of this github repository you should be able to install the
 dependencies with `poetry install`. This will create the environment for you
 and handle package dependencies. Run `poetry shell` next, as this is required
-before accessing any of the django management commands.
+before accessing any of the django management commands. See the poetry docs if
+needed as well: https://python-poetry.org/docs/#installation
 
 You will next have to create the database as this cannot be checked into the
 repository. I have provided a slightly altered CSV. The alterations from the
@@ -31,7 +32,7 @@ what was done there.
 
 First you must run `python manage.py migrate` to run the initial schema
 migrations for the sqlite3 database. Then you can run `python manage.py
-create_database` to create the rental agreements in the database. Once this has
+create_database --filename=cleaned_file.csv` to create the rental agreements in the database. Once this has
 been done you next run `python manage.py runserver` and visit
 `localhost:8000/api/rentals/` to see a listview of the rentals database table.
 This is the endpoint that you can run pass parameters to in order to search the
