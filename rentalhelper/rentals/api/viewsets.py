@@ -80,8 +80,8 @@ class RentalViewSet(viewsets.ModelViewSet):
 
                 for ab_id in landmark_results:
                     ids_to_query.add(ab_id)
-
-        queryset = queryset.filter(ab_id__in=ids_to_query)
+        if len(ids_to_query) > 0:
+            queryset = queryset.filter(ab_id__in=ids_to_query)
         return queryset.order_by('-id')
 
 
